@@ -24,7 +24,7 @@ def update_ranges(ranges):
     led_msg_mode.mode = 7
     led_msg_mode.color = color
     pub_mode.publish(led_msg_mode)
-    node.get_logger().info('Publishing: "%s"' % led_msg_mode)
+    #node.get_logger().info('Publishing: "%s"' % led_msg_mode)
 
 def main(args=None):
     global pub_mode, node
