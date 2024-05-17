@@ -13,15 +13,16 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='raimo',
-    maintainer_email='raimo@todo.todo',
-    description='TODO: Package description',
+    maintainer='Raimo Köidam',
+    maintainer_email='raimokoidam@gmail.com',
+    description='Robotont lighting demo package',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'demo_lighting = demo_lighting.demo_lighting:main',
-            'demo_lighting_scan = demo_lighting.demo_lighting_scan:main'
+            'demo_lighting_scan = demo_lighting.demo_lighting_scan:main',
+            'demo_lighting_manual = demo_lighting.demo_lighting_manual:main'
         ],
     },
 )

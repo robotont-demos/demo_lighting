@@ -1,5 +1,5 @@
 import rclpy
-from robotont_msgs.msg import LedModuleMode, ColorRGB
+from robotont_msgs.msg import LedModuleMode
 import random
 import os
 
@@ -10,16 +10,19 @@ mode = 0
 def change_mode():
     global mode
     led_msg_mode = LedModuleMode()
-    color = ColorRGB()
-    color.r = random.randint(0, 255)
-    color.g = random.randint(0, 255)
-    color.b = random.randint(0, 255)
     led_msg_mode.mode = mode
-    led_msg_mode.color = color
+    if mode == 1 or mode == 2:
+        led_msg_mode.prams.append(random.randint(0, 255))
+        led_msg_mode.prams.append(random.randint(0, 255))
+        led_msg_mode.prams.append(random.randint(0, 255))
+        led_msg_mode.prams.append(random.randint(1, 50))
+    if mode == 3 or mode == 4 or mode == 6:
+        led_msg_mode.prams.append(random.randint(1, 50))
+    
     pub_mode.publish(led_msg_mode)
     #node.get_logger().info('Publishing: "%s"' % led_msg_mode)
     mode += 1
-    if mode >= 6:
+    if mode >= 9:
         mode = 0
 
 def main(args=None):
